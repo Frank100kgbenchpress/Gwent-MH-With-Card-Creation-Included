@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\programacion\\DSL\\DSL.csproj",
+      "projectUniqueName": "D:\\programacion\\proyectos\\Gwent\\Assets\\scripts\\DSL\\DSL.csproj",
       "projectName": "DSL",
-      "projectPath": "D:\\programacion\\DSL\\DSL.csproj",
+      "projectPath": "D:\\programacion\\proyectos\\Gwent\\Assets\\scripts\\DSL\\DSL.csproj",
       "packagesPath": "C:\\Users\\alberto\\.nuget\\packages\\",
-      "outputPath": "D:\\programacion\\DSL\\obj\\",
+      "outputPath": "D:\\programacion\\proyectos\\Gwent\\Assets\\scripts\\DSL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alberto\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -31,6 +31,33 @@ namespace DSL
                 {"false", TokenType.BOOLEAN},
                 {"Card", TokenType.CARD},
                 {"Effect", TokenType.EFFECT},
+                { "Params", TokenType.PARAMS },
+                { "Action", TokenType.ACTION},
+                { "TriggerPlayer", TokenType.TRIGGERPLAYER},
+                { "Board",TokenType.BOARD },
+                { "HandOfPlayer", TokenType.HANDOFPLAYER},
+                { "Hand", TokenType.HAND  },
+                { "FieldOfPlayer", TokenType.FIELDOFPLAYER },
+                { "Field",  TokenType.FIELD},
+                { "GraveyardOfPlayer", TokenType.GRAVEYARDOFPLAYER },
+                { "Graveyard", TokenType.GRAVEYARD },
+                { "DeckOfPlayer", TokenType.DECKOFPLAYER},
+                { "Find", TokenType.FIND },
+                { "Push", TokenType.PUSH },
+                { "SendBottom", TokenType.SENDBOTTOM },
+                { "Pop", TokenType.POP },
+                { "Remove", TokenType.REMOVE},
+                { "Shuffle", TokenType.SHUFFLE},
+                { "Type",  TokenType.TYPE},
+                { "Faction", TokenType.FACTION},
+                { "Attack", TokenType.ATTACK },
+                { "Range", TokenType.RANGE},
+                { "OnActivation", TokenType.ONACTIVATION },
+                { "Selector",  TokenType.SELECTOR},
+                { "Source",  TokenType.SOURCE},
+                { "Single", TokenType.SINGLE},
+                { "Predicate", TokenType.PREDICATE },
+                { "PostAction", TokenType.POSTACTION},
             };
 
         }
@@ -57,34 +84,8 @@ namespace DSL
             char c = Advance();
             switch (c)
             {
-                case 'C':
-                if (Match('a') && Match('r') && Match('d'))
-                {
-                     AddToken(TokenType.CARD); // Agregar token para la palabra clave "Card"
-                //     if (Match('{'))
-                //     {
-                //         AddToken(TokenType.CARD); // Agregar token para la palabra clave "Card"
-                //         while (Peek() != '}')
-                //         {
-                //             if (IsAtEnd())
-                //             {
-                //                 throw new Error(ErrorType.LEXICAL, "Unfinished 'Card' block.");
-                //             }
-                //             Advance();
-                //         }
-                //         Advance(); // Avanzar para consumir el '}'
-                //         AddToken(TokenType.CLOSEKEY); // Agregar token para la llave cerrada '}'
-                //     }
-                // else
-                // {
-                //     throw new Error(ErrorType.LEXICAL, "Expected '{' after 'Card'.");
-                // }
-                // }
-                // else
-                // {
-                //     throw new Error(ErrorType.LEXICAL, "Invalid token starting with 'C'.");
-                // }
-                // break;
+                
+                
                 //ignore whitespace
                 case ' ':
                 case '\r':
@@ -94,6 +95,10 @@ namespace DSL
                 //scan separators and operators
                 case '(': AddToken(TokenType.LEFT_PAREN); break;
                 case ')': AddToken(TokenType.RIGHT_PAREN); break;
+                case '{': AddToken(TokenType.LEFT_BRACE);break;
+                case '}': AddToken(TokenType.RIGHT_BRACE);break;
+                case '[': AddToken(TokenType.LEFT_BRACKET);break;
+                case ']': AddToken(TokenType.RIGHT_BRACKET);break;
                 case ',': AddToken(TokenType.COMMA); break;
                 case ';': AddToken(TokenType.SEMICOLON); break;
                 case '-': AddToken(TokenType.MINUS); break;
@@ -173,9 +178,16 @@ namespace DSL
                     break;
             }
         }
-        /// <summary>
-        /// Scans a string token.
-        /// </summary>
+            /// <summary>
+            /// Scans a string token.
+            /// </summary>
+                
+            /// <summary>
+            /// Checks if the current character matches the expected character and advances if it does.
+            /// </summary>
+            /// <param name="expected">The expected character.</param>
+            /// <returns>True if the current character matches the expected character, false otherwise.</returns>///
+            
         void ScanString()
         {
             while (Peek() != '\"')
@@ -192,11 +204,6 @@ namespace DSL
             literal = literal.Substring(1, literal.Length - 2);
             AddToken(TokenType.STRING, literal);
         }
-        /// <summary>
-        /// Checks if the current character matches the expected character and advances if it does.
-        /// </summary>
-        /// <param name="expected">The expected character.</param>
-        /// <returns>True if the current character matches the expected character, false otherwise.</returns>
         bool Match(char expected)
         {
             if (IsAtEnd())
@@ -207,20 +214,20 @@ namespace DSL
             return true;
         }
 
-        /// <summary>
-        /// Returns the current character and advances to the next character.
-        /// </summary>
-        /// <returns>The current character.</returns>
+            /// <summary>
+            /// Returns the current character and advances to the next character.
+            /// </summary>
+            /// <returns>The current character.</returns>
         char Advance()
         {
             CurrentPosition++;
             return Source[CurrentPosition - 1];
         }
 
-        /// <summary>
-        /// Returns the current character without advancing to the next character.
-        /// </summary>
-        /// <returns>The current character.</returns>
+            /// <summary>
+            /// Returns the current character without advancing to the next character.
+            /// </summary>
+            /// <returns>The current character.</returns>
         char Peek()
         {
             if (IsAtEnd())
@@ -228,42 +235,44 @@ namespace DSL
             return Source[CurrentPosition];
         }
 
-        /// <summary>
-        /// Adds a token to the list of Tokens.
-        /// </summary>
-        /// <param name="type">The token type.</param>
+            /// <summary>
+            /// Adds a token to the list of Tokens.
+            /// </summary>
+            /// <param name="type">The token type.</param>
         void AddToken(TokenType type)
         {
             AddToken(type, null);
         }
 
-        /// <summary>
-        /// Adds a token with a literal value to the list of Tokens.
-        /// </summary>
-        /// <param name="type">The token type.</param>
-        /// <param name="literal">The literal value.</param>
+            /// <summary>
+            /// Adds a token with a literal value to the list of Tokens.
+            /// </summary>
+            /// <param name="type">The token type.</param>
+            /// <param name="literal">The literal value.</param>
         void AddToken(TokenType type, object literal)
         {
             string lexeme = GetLexeme();
             Tokens.Add(new Token(type, lexeme, literal));
         }
 
-        /// <summary>
-        /// Returns the lexeme based on the current position and the start of the lexeme.
-        /// </summary>
-        /// <returns>The lexeme.</returns>
+            /// <summary>
+            /// Returns the lexeme based on the current position and the start of the lexeme.
+            /// </summary>
+            /// <returns>The lexeme.</returns>
         string GetLexeme()
         {
             return Source.Substring(StartofLexeme, CurrentPosition - StartofLexeme);
         }
 
-        /// <summary>
-        /// Checks if the lexer has reached the end of the source code.
-        /// </summary>
-        /// <returns>True if the lexer has reached the end of the source code, false otherwise.</returns>
+            /// <summary>
+            /// Checks if the lexer has reached the end of the source code.
+            /// </summary>
+            /// <returns>True if the lexer has reached the end of the source code, false otherwise.</returns>
         bool IsAtEnd()
         {
             return CurrentPosition >= Source.Length;
         }
     }
 }
+
+

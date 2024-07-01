@@ -29,6 +29,10 @@ namespace DSL
         // Separators
         LEFT_PAREN,     // Represents the left parenthesis "("
         RIGHT_PAREN,    // Represents the right parenthesis ")"
+        LEFT_BRACE,     // Represents the left brace "{"
+        RIGHT_BRACE,    // Represents the right brace "}"
+        LEFT_BRACKET,   //Represents the left bracket "["
+        RIGHT_BRACKET,  //Represents the right bracket "]"
         SEMICOLON,      // Represents a semicolon ";"
         COMMA,          // Represents a comma ","
 
@@ -52,7 +56,7 @@ namespace DSL
         CONCAT,         // Represents the string concatenation operator "@"
         LAMBDA,         // Represents the lambda function operator "=>"
 
-        //For Card Creation//
+        //Card Keywords//
 
         NAME,
         PARAMS,
@@ -66,9 +70,25 @@ namespace DSL
         SINGLE,
         PREDICATE,
         POSTACTION,
-        //Card Keys
-        OPENKEY,        // Represents the keyword {
-        CLOSEKEY,       //Represents the keyword  }
+        SOURCE,
+       
+        //Effect Keywords
+        TRIGGERPLAYER,
+        BOARD,
+        HANDOFPLAYER,
+        HAND,
+        FIELDOFPLAYER,
+        FIELD,
+        GRAVEYARDOFPLAYER,
+         GRAVEYARD,
+        DECKOFPLAYER,
+        FIND,
+        PUSH,
+        SENDBOTTOM,
+        POP,
+        REMOVE,
+        SHUFFLE,
+
 
         // End of File
         EOF             // Represents the end of file marker

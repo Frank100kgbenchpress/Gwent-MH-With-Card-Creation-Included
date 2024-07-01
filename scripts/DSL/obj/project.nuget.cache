@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x2XnRohOP8XxgFFa2xwiX4fkmdkeMdEjhcyUfkdZooZtGVeCsTJPHNC8e3oEEPJ3UvLYVkRtq3c+9HhOKpiZ3w==",
+  "dgSpecHash": "iL+gwVWhmYxtFHJpRcwCrZ5lWfNj9rjcG7WfmJun/+oyn8tK2/d4NEC941rKXzvNkSZNgn2O8pJ42PownpEm0Q==",
   "success": true,
-  "projectFilePath": "D:\\programacion\\DSL\\DSL.csproj",
+  "projectFilePath": "D:\\programacion\\proyectos\\Gwent\\Assets\\scripts\\DSL\\DSL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
