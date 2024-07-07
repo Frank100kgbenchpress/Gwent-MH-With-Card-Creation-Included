@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSL
+namespace DSL2
 {
     /// <summary>
     /// Represents the type of a token.
@@ -35,6 +35,7 @@ namespace DSL
         RIGHT_BRACKET,  //Represents the right bracket "]"
         SEMICOLON,      // Represents a semicolon ";"
         COMMA,          // Represents a comma ","
+        QUOTATIONMARKS, // Represents a Quotation marks "" 
 
         // Operators
         PLUS,           // Represents the addition operator "+"
@@ -71,6 +72,9 @@ namespace DSL
         PREDICATE,
         POSTACTION,
         SOURCE,
+        MELEE,
+        RANGED,
+        SIEGE,
        
         //Effect Keywords
         TRIGGERPLAYER,
@@ -89,9 +93,13 @@ namespace DSL
         REMOVE,
         SHUFFLE,
 
+        //Unknown code//
+        UNKNOWN,
+
 
         // End of File
         EOF             // Represents the end of file marker
     }
 }
+
 

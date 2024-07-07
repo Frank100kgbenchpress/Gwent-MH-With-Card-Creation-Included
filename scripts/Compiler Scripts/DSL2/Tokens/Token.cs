@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSL
+namespace DSL2
 {
     /// <summary>
     /// Represents a token in the source code.
@@ -13,17 +13,10 @@ namespace DSL
     {
         public TokenType Type { get; }  // The type of the token
         public string Lexeme { get; }   // The lexeme of the token
-        public object Literal { get; }  // The literal value of the token
-        public Token(TokenType type, string lexeme, Object literal)
+        public Token(TokenType type, string lexeme)
         {
             Type = type;
             Lexeme = lexeme;
-            Literal = literal;
-        }
-
-        public override string ToString()
-        {
-            return Type + " " + Lexeme + " " + Literal;
         }
     }
 }
